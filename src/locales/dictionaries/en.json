@@ -1,0 +1,11 @@
+{
+	"common": {
+		"greeting": "Hello, clean url"
+	},
+	"seo": {
+		"home": {
+			"title": "Home",
+			"description": "Home page description"
+		}
+	}
+}

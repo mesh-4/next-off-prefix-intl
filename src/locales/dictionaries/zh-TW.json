@@ -1,0 +1,11 @@
+{
+	"common": {
+		"greeting": "你好，乾淨的連結"
+	},
+	"seo": {
+		"home": {
+			"title": "主頁",
+			"description": "主頁的描述"
+		}
+	}
+}
