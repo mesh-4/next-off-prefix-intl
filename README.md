@@ -1,5 +1,34 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Currently not interest at e-commerce and tired to create i18n route redirect handle those things so did that.
+
+## client side
+
+store language setting with cookie.
+
+1. set html element's lang
+2. sync to react context
+3. using `swr` take react context's value to fetch correspond dictionary
+4. using `lodash` to get the key value
+
+`src/app/greeting.tsx` for client side i18n component.
+
+`src/locales/client/selector.tsx` for language selector.
+
+`src/locales/client/use-dict.tsx` for dictionary fetcher.
+
+## server side
+
+Mostly base on https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing
+
+Expose `src/locales/server/get-dict.ts` for server component get dictionary.
+
+Expose `/locale/[lang]` endpoint for fetch dictionary at client side.
+
+## middleware
+
+Mostly base on https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing
+
 ## Getting Started
 
 First, run the development server:
