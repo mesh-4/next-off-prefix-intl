@@ -1,4 +1,5 @@
-import { isSupportLocale, getDict } from '@/locales/server/get-dict'
+import { isSupportLocale } from '@/locales/server/constants'
+import { getDict } from '@/locales/server/get-dict'
 
 export const GET = async (request: Request, { params }: { params: { lang: string } }) => {
 	const { lang } = params

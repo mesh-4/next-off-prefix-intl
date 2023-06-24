@@ -2,11 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   '@formatjs/intl-localematcher': 0.2.32
+  '@types/lodash': ^4.14.195
   '@types/negotiator': 0.6.1
   '@types/node': ^18.11.5
   '@types/react': ^18.0.23
   '@types/react-dom': ^18.0.7
   autoprefixer: 10.4.14
+  lodash: ^4.17.21
   negotiator: 0.6.3
   next: latest
   postcss: 8.4.24
@@ -20,6 +22,7 @@ specifiers:
 
 dependencies:
   '@formatjs/intl-localematcher': 0.2.32
+  lodash: 4.17.21
   negotiator: 0.6.3
   next: 13.4.7_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -28,6 +31,7 @@ dependencies:
   swr: 2.2.0_react@18.2.0
 
 devDependencies:
+  '@types/lodash': 4.14.195
   '@types/negotiator': 0.6.1
   '@types/node': 18.16.18
   '@types/react': 18.2.14
@@ -196,6 +200,10 @@ packages:
     dependencies:
       tslib: 2.5.3
     dev: false
+
+  /@types/lodash/4.14.195:
+    resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
+    dev: true
 
   /@types/negotiator/0.6.1:
     resolution: {integrity: sha512-c4mvXFByghezQ/eVGN5HvH/jI63vm3B7FiE81BUzDAWmuiohRecCO6ddU60dfq29oKUMiQujsoB2h0JQC7JHKA==}
@@ -505,6 +513,10 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}

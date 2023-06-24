@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 import { getLocaleByCookie } from '@/locales/server/get-locale'
 import { getDict } from '@/locales/server/get-dict'
+import Providers from './providers'
 
 import './globals.css'
 
@@ -22,7 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 	return (
 		<html lang={lang}>
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	)
 }
