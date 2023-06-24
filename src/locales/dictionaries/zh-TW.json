@@ -1,6 +1,7 @@
 {
 	"common": {
-		"greeting": "你好，乾淨的連結"
+		"greeting": "你好，乾淨的連結",
+		"from-server": "來自服務器的文字"
 	},
 	"seo": {
 		"home": {

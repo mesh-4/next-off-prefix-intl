@@ -1,6 +1,7 @@
 {
 	"common": {
-		"greeting": "Hello, clean url"
+		"greeting": "Hello, clean url",
+		"from-server": "This text is from server"
 	},
 	"seo": {
 		"home": {

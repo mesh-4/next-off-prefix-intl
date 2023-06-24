@@ -2,8 +2,6 @@
 
 import * as React from 'react'
 
-import { DEFAULT_LOCALE } from '@/locales/server/constants'
-
 type ContextValue = {
 	lang: string | null
 }
