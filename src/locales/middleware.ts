@@ -20,6 +20,8 @@ export const localeMiddleware = ({ request, options = DEFAULT_OPTIONS }: Ctx) =>
 
 	if (!preferredLocale || !supportValues.includes(preferredLocale)) {
 		lang = getLocale({ request, supportValues, defaultValue })
+	} else {
+		lang = preferredLocale
 	}
 
 	const response = NextResponse.next()
