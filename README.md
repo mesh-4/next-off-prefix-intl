@@ -4,28 +4,19 @@ Currently not interest at e-commerce and tired to create i18n route redirect han
 
 ## client side
 
-store language setting with cookie.
-
-1. set html element's lang
-2. sync to react context
-3. using `swr` take react context's value to fetch correspond dictionary
-4. using `lodash` to get the key value
-
-`src/app/greeting.tsx` for client side i18n component.
-
-`src/locales/client/selector.tsx` for language selector.
-
-`src/locales/client/use-dict.tsx` for dictionary fetcher.
+With [react-intl](https://github.com/formatjs/formatjs/tree/main/packages/react-intl).
 
 ## server side
 
-Mostly base on https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing
-
-Expose `src/locales/server/get-dict.ts` for server component get dictionary.
-
-Expose `/locale/[lang]` endpoint for fetch dictionary at client side.
+`src/locales/server/intl.ts` to create intl instance from server side. `useIntl` in that file can be used at server component, layout and page.
 
 ## middleware
+
+Steps:
+
+1. Take a look at is there any `lang` been set into cookies.
+2. Then check is pathname has `lang` params(`/?lang=en`).
+3. Finally extract and match language from `Accept-Language` header.
 
 Mostly base on https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing
 
