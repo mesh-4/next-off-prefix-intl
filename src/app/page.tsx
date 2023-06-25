@@ -16,6 +16,7 @@ export default async function Home() {
 			<div>
 				<Greeting />
 				<Suspense fallback={<div>loading</div>}>
+					{/* @ts-expect-error Server Component */}
 					<ServerTxt />
 				</Suspense>
 				<LangSelector defaultValue={intl.locale} />
