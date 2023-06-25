@@ -1,12 +1,10 @@
 'use client'
 
 import * as React from 'react'
-
-import { useDict } from '@/locales/client/use-dict'
+import { FormattedMessage } from 'react-intl'
 
 const Greeting = () => {
 	const [count, setCount] = React.useState(0)
-	const { t } = useDict()
 
 	const onClick = () => {
 		setCount((prev) => prev + 1)
@@ -14,7 +12,8 @@ const Greeting = () => {
 
 	return (
 		<p onClick={onClick}>
-			{t('common.greeting', 'Hello')} {count}
+			<FormattedMessage id="common.greeting" defaultMessage="Hello" />
+			{count}
 		</p>
 	)
 }

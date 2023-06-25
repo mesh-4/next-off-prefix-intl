@@ -1,30 +1,26 @@
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
-import { getLocaleByCookie } from '@/locales/server/get-locale'
-import { getDict } from '@/locales/server/get-dict'
-import Providers from './providers'
+import { useIntl } from '@/locales/server/intl'
+import IntlProvider from '@/locales/client/provider'
 
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export async function generateMetadata(): Promise<Metadata> {
-	const lang = getLocaleByCookie()
-	const dict = await getDict(lang)
-
-	return {
-		title: dict.seo.home.title,
-		description: dict.seo.home.description,
-	}
+export const metadata: Metadata = {
+	title: 'Next 13 app dir intl without i18n route',
 }
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-	const lang = getLocaleByCookie()
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	const intl = await useIntl()
 
 	return (
-		<html lang={lang}>
+		<html lang={intl.locale}>
 			<body className={inter.className}>
-				<Providers>{children}</Providers>
+				<IntlProvider locale={intl.locale} messages={intl.messages}>
+					{children}
+				</IntlProvider>
 			</body>
 		</html>
 	)

@@ -1,25 +1,29 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-import { isSupportLocale } from '@/locales/server/constants'
-import { getLocaleByHeader } from '@/locales/server/get-locale'
+import { CUSTOM_HEADER_KEY, DEFAULT_OPTIONS } from '@/locales/constants'
+import { getLocale } from '@/locales/server/utils'
+import type { LocaleOptions } from '@/locales/types'
 
 type Ctx = {
 	request: NextRequest
+	options?: LocaleOptions
 }
 
-export const localeMiddleware = ({ request }: Ctx) => {
+export const localeMiddleware = ({ request, options = DEFAULT_OPTIONS }: Ctx) => {
 	const { cookies } = request
+	const { defaultValue, supportValues } = options
+
+	let lang = defaultValue
+
+	const preferredLocale = cookies.get('lang')?.value
+
+	if (!preferredLocale || !supportValues.includes(preferredLocale)) {
+		lang = getLocale({ request, supportValues, defaultValue })
+	}
 
 	const response = NextResponse.next()
-
-	const preferredLocale = cookies.get('lang')
-
-	if (!preferredLocale || !isSupportLocale(preferredLocale.value)) {
-		const locale = getLocaleByHeader(request)
-		response.cookies.set('lang', locale, { path: '/', httpOnly: false })
-		return response
-	}
+	response.headers.set(CUSTOM_HEADER_KEY, lang)
 
 	return response
 }
